@@ -18,7 +18,7 @@ xfx_data = torch.tensor(xf_data, dtype=torch.int)
 
 # 다른 tensor를 통한 tensor생성
 x_ones = torch.ones_like(x_data)
-x_rand = torch.rand_like(x_data)
+# x_rand = torch.rand_like(x_data)
 
 # torch로 tensor를 생성할 떄는 임의의 tuple을 사용해 만들수 있다.
 shapes = (2,3,)
@@ -26,7 +26,13 @@ shapes = (2,3,)
 rand_tensor = torch.rand(shapes) # 랜덤배열 
 ones_tensor = torch.ones(shapes) # 1로 구성된 배열
 zeros_tensor = torch.zeros(shapes) # 0 배열
-
+# *args가 포함되어있다.
 print(rand_tensor)
 print(ones_tensor)
 print(zeros_tensor)
+
+print(torch.cuda.is_available())
+
+if torch.cuda.is_available():
+    tensor = tensor.to("cuda")
+    print("GPU")
