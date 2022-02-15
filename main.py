@@ -34,5 +34,5 @@ print(zeros_tensor)
 print(torch.cuda.is_available())
 
 if torch.cuda.is_available():
-    tensor = tensor.to("cuda")
+    tensor = rand_tensor.to("cuda")
     print("GPU")
