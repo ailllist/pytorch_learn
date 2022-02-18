@@ -31,8 +31,13 @@ print(rand_tensor)
 print(ones_tensor)
 print(zeros_tensor)
 
-print(torch.cuda.is_available())
+# print(torch.cuda.is_available())
 
 if torch.cuda.is_available():
     tensor = rand_tensor.to("cuda")
     print("GPU")
+
+tensor = torch.rand(3,4)
+print(f"Shape of tensor : {tensor.shape}")
+print(f"dtype of tensor : {tensor.dtype}")
+print(f"Device tensor is stored on : {tensor.device}")
