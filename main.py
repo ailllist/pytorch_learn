@@ -33,11 +33,18 @@ print(zeros_tensor)
 
 # print(torch.cuda.is_available())
 
-if torch.cuda.is_available():
-    tensor = rand_tensor.to("cuda")
-    print("GPU")
-
-tensor = torch.rand(3,4)
-print(f"Shape of tensor : {tensor.shape}")
+# tensor는 다음과 같은 속성을 가진다. tensor.shape, tensor.dtype, tensor.device
+tensor = torch.rand(3,4).to("cuda")
+print(f"Shape of tensor : {tensor.shape}") 
 print(f"dtype of tensor : {tensor.dtype}")
 print(f"Device tensor is stored on : {tensor.device}")
+
+tensor = torch.ones(4,4)
+
+if torch.cuda.is_available():
+    tensor = tensor.to("cuda")
+    print("GPU")
+
+print(f"First row: {tensor[0]}")
+print(f"First column: {tensor[:, 0]}")
+print(f"Last column: {tensor[..., -1]}")
